@@ -122,6 +122,8 @@ class Address extends \Faker\Provider\Address
         'Zambia', 'Zuid-Afrika', 'Zuid-Georgia en de Zuidelijke Sandwicheilanden', 'Zimbabwe'
     );
 
+    protected static $secondaryAddressFormats = array('##-##', '##');
+
     /**
     * @see parent
     */
@@ -150,4 +152,14 @@ class Address extends \Faker\Provider\Address
     {
         return static::randomElement(static::$postcodes);
     }
+
+    /**
+     * @example 'Appt. 350'
+     */
+    public static function secondaryAddress()
+    {
+        return static::numerify(static::randomElement(static::$secondaryAddressFormats));
+    }
+
+
 }
